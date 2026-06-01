@@ -5,33 +5,30 @@ import models.Persona;
 public class SortPersonaMethods {
 
     public void insertionSort (Persona[] personas){
-
-        int aux;
-
-        for( int i = 1; i < personas.length; i++);
+        for( int i = 1; i < personas.length; i++){
 
             Persona aux = personas[i];
-            int j = 1;
-            while(j>=0 && personas[j-1].getEdad()>aux.getEdad()){
+            int j = i - 1;
+            while(j>=0 && personas[j].getEdad()>aux.getEdad()){
 
-                personas [j +1] = personas[i];
+                personas [j +1] = personas[j];
                 j--;
             }
-            personas [j] = aux;
+            personas [j+1] = aux;
             }
 
-    public void quickSort( Persona[] personas, int inicio, int fin){
-    if (inicio < fin){
-        int indicePivote = particionar(personas,inicio,fin);
-        quickSort(personas, inicio , indicePivote -1);
-        quickSort(personas, indicePivote + 1, fin);
+        }
+        public void quickSort( Persona[] personas, int inicio, int fin){
+        if (inicio < fin){
+            int indicePivote = particionar(personas,inicio,fin);
+            quickSort(personas, inicio , indicePivote -1);
+            quickSort(personas, indicePivote + 1, fin);
+        }
     }
-}
-private int particionar(Persona [] personas, int inicio, int fin){}
-    Persona pivote = personas [fin];
-    int i = inicio - 1;  
-
-    for (int j = inicio; j < fin; i++) {
+    private int particionar(Persona [] personas, int inicio, int fin){
+        Persona pivote = personas[fin];
+        int i = inicio - 1; 
+        for (int j = inicio; j < fin; j++) {
         if (personas[j].getCriterioOrdenamiento()<= pivote.getCriterioOrdenamiento()) {
             i++;
             intercambiar (personas, i , j);
@@ -47,6 +44,7 @@ private void intercambiar(Persona[] personas, int i , int j){
     personas[i] = personas [j];
     personas [j] = aux;
 
+}
 }
 
 
