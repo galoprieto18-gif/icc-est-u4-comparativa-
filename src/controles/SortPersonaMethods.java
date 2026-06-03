@@ -25,18 +25,25 @@ public class SortPersonaMethods {
             quickSort(personas, indicePivote + 1, fin);
         }
     }
-    private int particionar(Persona [] personas, int inicio, int fin){
-        Persona pivote = personas[fin];
-        int i = inicio - 1; 
-        for (int j = inicio; j < fin; j++) {
-        if (personas[j].getCriterioOrdenamiento()<= pivote.getCriterioOrdenamiento()) {
-            i++;
-            intercambiar (personas, i , j);
+    private int particionar(Persona[] personas, int inicio, int fin) {
 
+    int medio = (inicio + fin) / 2;
+    intercambiar(personas, medio, fin);
+
+    Persona pivote = personas[fin];
+    int i = inicio - 1;
+
+    for (int j = inicio; j < fin; j++) {
+
+        if (personas[j].getCriterioOrdenamiento() <= pivote.getCriterioOrdenamiento()) {
+
+            i++;
+            intercambiar(personas, i, j);
         }
     }
-    
-    intercambiar (personas, i + 1, fin);
+
+    intercambiar(personas, i + 1, fin);
+
     return i + 1;
 }
 private void intercambiar(Persona[] personas, int i , int j){
@@ -44,7 +51,7 @@ private void intercambiar(Persona[] personas, int i , int j){
     personas[i] = personas [j];
     personas [j] = aux;
 
-}
+    }
 }
 
 

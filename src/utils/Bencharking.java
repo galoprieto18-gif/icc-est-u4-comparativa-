@@ -17,7 +17,7 @@ public class Bencharking {
 
             double duracion = fin - inicio;
 
-            return new Resultado(algoritmo, escenario,sample, duracion, duracion);
+            return new Resultado(algoritmo, escenario,sample, duracion);
 
         }catch ( Exception e){
             throw new RuntimeException("error el ejecutar la funcion de ordenamiento ");
